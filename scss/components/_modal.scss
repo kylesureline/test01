@@ -1,0 +1,106 @@
+// ======================================
+//  Modal
+// ======================================
+
+.modal {
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, .6);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include flexy($disp: flex, $dir: column, $just: center, $align-items: center);
+}
+
+.modal-content {
+  min-height: 300px;
+  width: calc(100% - 1em);
+  max-width: 500px;
+  background-color: $white;
+  padding: 1em;
+  position: relative;
+  @include flexy($disp: flex, $dir: column, $just: center, $align-items: center);
+  @include roundy;
+  border: 1px solid $theme-card-border;
+  text-align: center;
+  @media (min-width: 768px) {
+    padding: 2em;
+  }
+  @media (min-width: 1024px) {
+    padding: 3em;
+  }
+  & .close {
+    top: 1em;
+    right: 1em;
+  }
+  & .left {
+    left: 1em;
+    top: 50%;
+  }
+  & .right {
+    right: 1em;
+    top: 50%;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.modal-content {
+  & .close,
+  & .left,
+  & .right {
+    cursor: pointer;
+    position: absolute;
+    padding: .5em;
+  }
+}
+
+.modal .profile {
+  @include roundy($radius: 50%);
+  width: 172px;
+  height: 172px;
+  @media (max-width: 320px) {
+    width: 114px;
+    height: 114px;
+  }
+}
+
+.modal {
+  & .email,
+  & .city,
+  & .secondary {
+    color: $theme-light-font;
+  }
+}
+
+.modal {
+  & .secondary {
+    padding-top: .5em;
+  }
+  @media (min-width: 768px) {
+    & .primary {
+      padding-bottom: 1em;
+    }
+    & .secondary {
+      padding-top: 1em;
+    }
+  }
+}
+
+.modal .contact {
+  &.secondary {
+    border-top: 1px solid $theme-card-border;
+  }
+}
+
+.modal .birthday {
+  &::before {
+    content: 'Birthday: '
+  }
+}
+
+.modal .name {
+  text-transform: capitalize;
+}
